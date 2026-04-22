@@ -1,0 +1,294 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Celestial Minimalism: Deep midnight navy background with ivory marble and muted gold accents */
+  --primary: oklch(0.65 0.12 70);
+  --primary-foreground: oklch(0.12 0.01 250);
+  --sidebar-primary: oklch(0.65 0.12 70);
+  --sidebar-primary-foreground: oklch(0.12 0.01 250);
+  --chart-1: oklch(0.55 0.15 150);
+  --chart-2: oklch(0.50 0.18 260);
+  --chart-3: oklch(0.65 0.12 70);
+  --chart-4: oklch(0.55 0.15 150);
+  --chart-5: oklch(0.50 0.18 260);
+  --radius: 0.65rem;
+  
+  /* Dark midnight navy background */
+  --background: oklch(0.12 0.01 250);
+  --foreground: oklch(0.95 0.01 70);
+  --card: oklch(0.18 0.01 250);
+  --card-foreground: oklch(0.95 0.01 70);
+  --popover: oklch(0.18 0.01 250);
+  --popover-foreground: oklch(0.95 0.01 70);
+  --secondary: oklch(0.55 0.15 150);
+  --secondary-foreground: oklch(0.95 0.01 70);
+  --muted: oklch(0.30 0.02 250);
+  --muted-foreground: oklch(0.75 0.02 70);
+  --accent: oklch(0.65 0.12 70);
+  --accent-foreground: oklch(0.12 0.01 250);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.25 0.02 250);
+  --input: oklch(0.25 0.02 250);
+  --ring: oklch(0.65 0.12 70);
+  --sidebar: oklch(0.18 0.01 250);
+  --sidebar-foreground: oklch(0.95 0.01 70);
+  --sidebar-accent: oklch(0.65 0.12 70);
+  --sidebar-accent-foreground: oklch(0.12 0.01 250);
+  --sidebar-border: oklch(0.25 0.02 250);
+  --sidebar-ring: oklch(0.65 0.12 70);
+}
+
+@layer base {
+  * {
+    @apply border-slate-800;
+  }
+  body {
+    @apply bg-slate-950 text-amber-50;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1280px;
+    }
+  }
+
+  /* Celestial Minimalism: Marble texture and gold accents */
+  .marble-texture {
+    background-image: 
+      radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
+  }
+
+  .gold-border {
+    border-color: oklch(0.65 0.12 70);
+  }
+
+  .gold-accent {
+    color: oklch(0.65 0.12 70);
+  }
+
+  .emerald-accent {
+    color: oklch(0.55 0.15 150);
+  }
+
+  .sapphire-accent {
+    color: oklch(0.50 0.18 260);
+  }
+
+  /* Glow effect for rare cards */
+  .glow-halo {
+    box-shadow: 0 0 40px rgba(101, 194, 255, 0.15);
+  }
+
+  .glow-halo-rare {
+    box-shadow: 0 0 40px rgba(52, 211, 153, 0.2);
+  }
+
+  .glow-halo-mythic {
+    box-shadow: 0 0 40px rgba(168, 85, 247, 0.2);
+  }
+
+  /* Arch frame for cards */
+  .arch-frame::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 20px;
+    border: 2px solid oklch(0.65 0.12 70);
+    border-bottom: none;
+    border-radius: 50% 50% 0 0;
+    opacity: 0.4;
+  }
+}
+
+html {
+  font-family: 'Inter', system-ui, sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #020617;
+  color: #fffbeb;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Crimson Text', serif;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.lore-text {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  line-height: 1.8;
+  letter-spacing: 0.01em;
+}
+
+.small-caps {
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+}
+
+/* Smooth animations for card interactions */
+@keyframes cardRise {
+  from {
+    transform: translateY(20px) scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes cardFlip {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(180deg);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes sectionFadeUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes moonSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-card-rise {
+  animation: cardRise 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-card-flip {
+  animation: cardFlip 0.25s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.2s ease-out forwards;
+}
+
+.animate-section-fade-up {
+  animation: sectionFadeUp 0.5s ease-out forwards;
+}
+
+.animate-moon-spin {
+  animation: moonSpin 1.5s linear infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+.animate-float-up {
+  animation: floatUp 3s ease-in-out infinite;
+}
+
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.card-hover:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(217, 119, 6, 0.2);
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

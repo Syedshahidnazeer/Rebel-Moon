@@ -1,0 +1,248 @@
+You’re building a card-drawing (gacha) site where each pull reveals an AI-generated mythical scene tied to the Taj Mahal and Indo‑Islamic motifs: celestial gardens, moonlit domes, calligraphic guardians, river spirits along the Yamuna, etc.
+
+The tone is Indian Muslim luxury: think white marble, inlaid gemstones, gold foil, geometric arabesques, moonlight, and soft recitation‑like ambience, but balanced with a minimalist layout and plenty of breathing room.
+
+Each draw shows a full-screen card with a Taj‑inspired illustration + lore paragraph, then adds it to a bestiary/gallery where users can browse everything they’ve unlocked.
+Interactions are smooth and tactile: cards glide, flip, and float with easing; subtle glow and parallax give a feeling of “holding” a tiny relic from an imperial fantasy deck, not a noisy game.
+
+Target users are aesthetics‑loving gamers, AI‑art enthusiasts, and design‑minded visitors who want something between an art book and a toy.
+
+2. UX & content structure
+Sections (single scroll page)
+Hero – “Tales of the Marble Moon”
+
+Purpose: Immediately set the luxury Indo‑Islamic fantasy tone and explain the mechanic.
+
+Content:
+
+Title: “Tales of the Marble Moon” (or your brand name).
+
+Subtitle: “Draw celestial cards inspired by the Taj Mahal and Mughal legends — each with its own AI‑crafted scene and lore.”
+
+Primary CTA button: “Draw a card”.
+
+Secondary: “View your gallery”.
+
+A small caption: “Mobile‑first, AI‑generated art, no wallet required.”
+
+Gacha interaction panel
+
+Purpose: Let users draw cards and see the result.
+
+Content:
+
+Centered “altar” / “marble plinth” with a deck of face‑down cards.
+
+“Draw” button (big pill) and small remaining draws indicator (if you want limits).
+
+After draw: animated reveal of a card with:
+
+Name (e.g., “Guardian of the Yamuna Veil”).
+
+Rarity tag (common / rare / mythic).
+
+Short lore (2–4 lines).
+
+“Add to gallery” (auto) and “Draw again” button.
+
+Lore spotlight (current card detail)
+
+Purpose: Give more narrative depth for the current card.
+
+Content:
+
+Large card artwork.
+
+Extended lore text (scrollable within the card on mobile).
+
+Tags: “Realm”, “Element”, “Era” (e.g., “Midnight Garden”, “Water”, “Shah Jahan’s Reverie”).
+
+A “Share card” button (copy link / Twitter).
+
+Bestiary / Gallery
+
+Purpose: Browsable archive of unlocked cards.
+
+Content:
+
+Grid of smaller cards with:
+
+Thumbnail, name, rarity color frame.
+
+Filters: “All / Common / Rare / Mythic / Unseen”.
+
+Clicking a card opens the same lore detail view as above.
+
+World & art direction explainer
+
+Purpose: Explain the concept of “Taj‑inspired mythology” and AI art.
+
+Content:
+
+Short paragraphs about drawing from Taj Mahal architecture, geometric ornament, and Mughal gardens.
+
+2–3 sample concept thumbnails arranged in a horizontal scroll.
+
+How it works / Tech credits
+
+Purpose: Brief technical explanation for dev/design audiences.
+
+Content:
+
+“AI images generated with [tool] using Taj Mahal + Indo‑Islamic motifs.”
+
+“Each card’s lore is generated + hand‑edited for coherence.”
+
+Brief note about no blockchain, no gambling, just cosmetic play.
+
+Footer
+
+Purpose: Light brand and links.
+
+Content:
+
+Project credits, GitHub link, social links.
+
+Optional disclaimer about Taj Mahal being a real heritage site, this being a fictional universe.
+
+3. Visual system (Taj Mahal × minimalist fantasy)
+Colors (roles, not exact hexes)
+Background:
+
+Deep midnight navy or blue‑black (like a night sky above the Taj), so white marble elements glow.
+
+Primary surface:
+
+Soft ivory/white marble with a faint stone texture on cards and panels, hinting at the Taj’s marble facades.
+
+Primary accent:
+
+Gold (muted, not neon) for lines, borders, rarity tags, and calligraphic motifs.
+
+Secondary accents:
+
+Emerald and sapphire for rare and mythic frames (echoing gem inlays).
+
+Typography colors:
+
+Main text: warm light beige for comfort against dark blue.
+
+Muted text: slightly dimmer beige for secondary labels.
+
+Typography
+Headings:
+
+Elegant serif with slight calligraphic vibe (think display serif with high contrast).
+
+Use for H1/H2, large titles on cards.
+
+Body:
+
+Clean sans‑serif for legibility on mobile.
+
+Lore text:
+
+Slightly more line height, maybe small caps or italic for headings like “Lore”.
+
+Accent details:
+
+Occasional decorative ligature or stylized ampersand in headers.
+
+Layout & grid
+Mobile-first:
+
+Single column. Hero, then gacha panel, then current card, then gallery, etc.
+
+Cards occupy ~90% width with generous padding and rounded corners.
+
+Tablet/desktop:
+
+2-column layout in the main interaction area (card and controls side by side).
+
+Gallery as 3–4 column grid.
+
+Spacing:
+
+Large vertical spacing between sections to preserve the “museum” feel, not a cramped game UI.
+
+Recurring motifs
+Mughal arches and frames:
+
+Use a subtle arch shape on top of the card art area, echoing Taj doorways.
+
+Geometric borders:
+
+Thin gold geometric frames around cards, inspired by Islamic ornamental borders.
+
+Soft glow halos:
+
+Behind rare cards, a faint circular gradient to feel blessed or celestial.
+
+Crescent / moon icon:
+
+Used as a subtle loading spinner or rarity indicator.
+
+4. Interaction & motion design
+Gacha draw flow
+Trigger: Tap “Draw a card”.
+
+Animation sequence:
+
+Deck on pedestal trembles slightly, then one card rises.
+
+Card floats upward (translateY, scale up), then rotates 180° (Y-axis) to reveal the face.
+
+Background behind card dims slightly, adding spotlight.
+
+Lore text fades in separately (small delay) and rarity badge appears with a flicker.
+
+Duration & easing:
+
+300–400ms lifts, 250ms flip, 200ms fade for text, using ease-out / cubic-bezier for smoothness.
+
+Purpose:
+
+Make each draw feel significant without long delays. Cards are “ceremonial objects”, not slot‑machine reels.
+
+Bestiary/gallery interactions
+Card hover/tap:
+
+On hover (desktop): subtle tilt and parallax of art area.
+
+On tap (mobile): scale up slightly and open detail view in a full-screen overlay with slide-up animation.
+
+Filters:
+
+Chips (All / Rare / Mythic) animate with underlines and micro-scale when selected.
+
+Filter action smoothly re‑orders or fades cards rather than hard cuts.
+
+Global motion
+Scroll:
+
+Section titles use a subtle fade‑up on entering viewport.
+
+Background stars or light dust can have a very slow parallax or drift.
+
+prefers-reduced-motion:
+
+Disable flips and parallax, replace with simple fade-in of card faces.
+
+5. Media & AI asset prompts
+You can feed these into Midjourney/SD/DALL·E etc. Adjust brand name as needed.
+
+Card artwork base prompt:
+
+“Cinematic illustration of a mythical realm inspired by the Taj Mahal at night, Indo‑Islamic architecture, white marble domes, minarets reflected in a still river, intricate geometric and floral inlay patterns, soft moonlight and mist, luxurious gold and jewel accents, fantasy atmosphere, high detail, vertical card aspect ratio.”
+
+Creature/guardian prompt:
+
+“Mythical guardian spirit standing on a marble terrace overlooking the Taj Mahal, wearing Mughal‑inspired robes, subtle Islamic calligraphy motifs, glowing crescent halo, ethereal yet serene, fantasy concept art, deep blue and gold color palette, highly detailed, vertical card format.”
+
+Gallery thumbnails:
+
+“Minimal tarot‑style card with Taj Mahal silhouette in gold line art on ivory marble texture, Islamic geometric border, dark blue background, flat but luxurious, iconographic.”
+
+Background cover art:
+
+“Wide shot of the Taj Mahal at midnight with stars overhead, soft fog on the river, shimmering reflections, subtle teal and indigo tones, cinematic but minimalist.”
