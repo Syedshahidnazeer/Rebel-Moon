@@ -16,7 +16,17 @@
 
 <body>
   <div id="root"></div>
-  <script type="module" src="/main.tsx"></script>
+  <script id="app-entry" type="module" src="/main.tsx"></script>
+  <script>
+    const entryScript = document.getElementById("app-entry");
+    if (
+      window.location.hostname.endsWith("github.io") &&
+      !window.location.pathname.includes("/dist/") &&
+      entryScript?.getAttribute("src") === "/main.tsx"
+    ) {
+      window.location.replace(new URL("./dist/", window.location.href).toString());
+    }
+  </script>
 </body>
 
 </html>
